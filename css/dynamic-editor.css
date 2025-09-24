@@ -1,0 +1,103 @@
+/* Dynamic Editor Styles */
+#my-editor-container {
+    position: relative;
+}
+
+#my-editor-container textarea {
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    transition: border-color 0.2s ease;
+}
+
+#my-editor-container textarea:focus {
+    border-color: #0073aa;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0,115,170,0.3);
+}
+
+/* Drag and Drop Styles */
+#my-editor-container.drag-over textarea {
+    border-color: #00a32a;
+    background-color: #f0f8f0;
+}
+
+.drop-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 163, 42, 0.9);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    display: none;
+    z-index: 1000;
+}
+
+#my-editor-container.drag-over .drop-indicator {
+    display: block;
+}
+
+/* Template insertion animation */
+.template-inserted {
+    animation: templateInsert 0.5s ease;
+}
+
+@keyframes templateInsert {
+    0% {
+        background-color: #fff3cd;
+        border-color: #ffeaa7;
+    }
+    100% {
+        background-color: transparent;
+        border-color: #ccc;
+    }
+}
+
+/* Code preview styles */
+.code-preview {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+}
+
+.code-preview.active {
+    display: block;
+}
+
+.code-toggle {
+    margin-top: 10px;
+    background: #0073aa;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.code-toggle:hover {
+    background: #005a87;
+}
+
+/* Side panel specific styles */
+#side-content-container .templates-panel {
+    margin: -12px -12px 0 -12px;
+}
+
+/* Make sure the drag works properly in WordPress admin */
+.template-item[draggable="true"] {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
